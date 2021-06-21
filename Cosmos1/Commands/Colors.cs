@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace LyandOS.Commands
 {
@@ -9,7 +11,7 @@ namespace LyandOS.Commands
             Console.WriteLine("Select the color you want to set with the number.");
             Console.WriteLine("1 - Red, 2 - Blue, 3 - Green, 4 - Yellow, 5 - Magenta, 6 - Black, 0 - reset.");
             var colorInput = Convert.ToInt32(Console.ReadLine());
-            switch (colorInput)
+            switch(colorInput)
             {
                 case 1:
                     Console.ForegroundColor = ConsoleColor.Red;
@@ -91,7 +93,7 @@ namespace LyandOS.Commands
         {
             Console.Write("There is only one available theme, 'Inverse', now. Do you want to apply it?(Type 'y' if yes, else type any letter. If you want to reset, type '0'.)");
             var theme = Console.ReadLine();
-            switch (theme)
+            switch(theme)
             {
                 case "y":
                     Console.BackgroundColor = ConsoleColor.White;
