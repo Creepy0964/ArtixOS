@@ -1,6 +1,10 @@
-﻿using LyandOS.Utils;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using Sys = Cosmos.System;
+using Cosmos.System.FileSystem.VFS;
+using Cosmos.System.FileSystem;
+using Cosmos.HAL;
 
 namespace LyandOS.Commands
 {
@@ -50,7 +54,12 @@ namespace LyandOS.Commands
 
         public static void Bsod()
         {
-            SystemFailtureManager.CallKernelPanic("Intentional BSOD test", "No tracelog required", "0");
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("Oops! We caught an exception, and your computer needs to reboot. Press any key to continue...");
+            Console.ReadKey();
+            Sys.Power.Reboot();
         }
 
         public static void Store()
@@ -68,6 +77,26 @@ namespace LyandOS.Commands
         {
             Console.WriteLine("Discord: https://discord.gg/BdHymp8ZZ9");
             Console.WriteLine("");
+        }
+
+        public static void BootArt()
+        {
+            Console.WriteLine(@" _                           _ _____ _____ ");
+            Cosmos.HAL.Global.PIT.Wait(500);
+            Console.WriteLine(@"| |                         | |  _  /  ___|");
+            Cosmos.HAL.Global.PIT.Wait(500);
+            Console.WriteLine(@"| |    _   _  __ _ _ __   __| | | | \ `--. ");
+            Cosmos.HAL.Global.PIT.Wait(500);
+            Console.WriteLine(@"| |   | | | |/ _` | '_ \ / _` | | | |`--. \");
+            Cosmos.HAL.Global.PIT.Wait(500);
+            Console.WriteLine(@"| |___| |_| | (_| | | | | (_| \ \_/ /\__/ /");
+            Cosmos.HAL.Global.PIT.Wait(500);
+            Console.WriteLine(@"\_____/\__, |\__,_|_| |_|\__,_|\___/\____/ ");
+            Cosmos.HAL.Global.PIT.Wait(500);
+            Console.WriteLine(@"        __/ |                              ");
+            Cosmos.HAL.Global.PIT.Wait(500);
+            Console.WriteLine(@"       |___/                               ");
+            Cosmos.HAL.Global.PIT.Wait(500);
         }
     }
 }

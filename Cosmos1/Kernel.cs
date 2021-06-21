@@ -1,8 +1,11 @@
-﻿using Cosmos.System.FileSystem;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading;
 using LyandOS.Commands;
-using LyandOS.Utils;
-using System;
 using Sys = Cosmos.System;
+using Cosmos.System.FileSystem.VFS;
+using Cosmos.System.FileSystem;
 
 namespace LyandOS
 {
@@ -15,7 +18,7 @@ namespace LyandOS
         protected override void BeforeRun()
         {
             Sys.FileSystem.VFS.VFSManager.RegisterVFS(fs); // регистрируем фат32
-            ConsoleGraphics.BootArt();
+            Other.BootArt();
             Console.WriteLine("Press any key to boot...");
             Console.ReadKey();
 
@@ -26,10 +29,10 @@ namespace LyandOS
         }
 
         protected override void Run()
-        {
+        {            
             Console.Write(@"0:\> ");
             var input = Console.ReadLine();
-            switch (input)
+            switch(input)
             {
                 case "shutdown":
                     Console.WriteLine("Shutdowning in 5 seconds. We hope you are glad to use LyandOS! Goodbye!");
@@ -43,7 +46,7 @@ namespace LyandOS
                     Other.Bsod();
                     break;
                 case "help":
-                    ConsoleGraphics.Help();
+                    Utilities.Help();
                     break;
                 case "social":
                     Other.Social();
@@ -130,7 +133,7 @@ namespace LyandOS
                     Console.WriteLine("Unknown input. Type 'help' for commands.");
                     Console.WriteLine("");
                     break;
-            }
+            }            
         }
     }
 }
