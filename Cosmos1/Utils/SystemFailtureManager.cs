@@ -44,6 +44,7 @@ namespace LyandOS.Utils
             Sys.Power.Reboot();
         }
 
-        public static void PushLogs(string url, string logs) => new WebClient().UploadData(url, Encoding.Default.GetBytes(logs));
+        // TODO: find a way...
+        public static void PushLogs(string url, string logs) { throw new Exception("Not implemented in Cosmos OS"); }
     }
 }
