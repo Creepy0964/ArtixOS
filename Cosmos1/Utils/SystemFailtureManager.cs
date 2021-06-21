@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Text;
 using Sys = Cosmos.System;
@@ -31,8 +30,8 @@ namespace LyandOS.Utils
             Console.WriteLine("Oops! We've caught an exception, and your computer needs to be restarted.");
             Console.WriteLine();
 
-            Console.WriteLine("Here's some debug information for developers. {0}", 
-                logsSent ? "Anonymous logs were sent to the server." : 
+            Console.WriteLine("Here's some debug information for developers. {0}",
+                logsSent ? "Anonymous logs were sent to the server." :
                 "Please, contact Creepy0964#9567 on Discord and provide this information.");
             Console.WriteLine();
 

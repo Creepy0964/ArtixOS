@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace LyandOS.Commands
 {
@@ -54,7 +52,7 @@ namespace LyandOS.Commands
                     Console.WriteLine("");
                 }
                 else
-                {                    
+                {
                     int sum = a / b;
                     Console.WriteLine("Result: " + sum);
                     Console.WriteLine("");
