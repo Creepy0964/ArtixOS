@@ -7,4 +7,7 @@ What you can see in the OS:
 - the installing and deleting of programms
 - file manager
 - color customization
-That's all for now. OS version: 0.0.5. I hope that the OS is usable!
+- theme selector
+- boot screen
+
+That's all for now. OS version: 0.1. I hope that the OS is usable!
