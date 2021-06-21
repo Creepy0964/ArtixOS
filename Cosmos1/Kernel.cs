@@ -6,6 +6,7 @@ using LyandOS.Commands;
 using Sys = Cosmos.System;
 using Cosmos.System.FileSystem.VFS;
 using Cosmos.System.FileSystem;
+using LyandOS.Utils;
 
 namespace LyandOS
 {
@@ -18,7 +19,7 @@ namespace LyandOS
         protected override void BeforeRun()
         {
             Sys.FileSystem.VFS.VFSManager.RegisterVFS(fs); // регистрируем фат32
-            Other.BootArt();
+            ConsoleGraphics.BootArt();
             Console.WriteLine("Press any key to boot...");
             Console.ReadKey();
 
@@ -46,7 +47,7 @@ namespace LyandOS
                     Other.Bsod();
                     break;
                 case "help":
-                    Utilities.Help();
+                    ConsoleGraphics.Help();
                     break;
                 case "social":
                     Other.Social();

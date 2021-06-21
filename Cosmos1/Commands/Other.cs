@@ -5,6 +5,7 @@ using Sys = Cosmos.System;
 using Cosmos.System.FileSystem.VFS;
 using Cosmos.System.FileSystem;
 using Cosmos.HAL;
+using LyandOS.Utils;
 
 namespace LyandOS.Commands
 {
@@ -54,12 +55,7 @@ namespace LyandOS.Commands
 
         public static void Bsod()
         {
-            Console.BackgroundColor = ConsoleColor.Blue;
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.Write("Oops! We caught an exception, and your computer needs to reboot. Press any key to continue...");
-            Console.ReadKey();
-            Sys.Power.Reboot();
+            SystemFailtureManager.CallKernelPanic("Intentional BSOD test", "No tracelog required", "0");
         }
 
         public static void Store()
