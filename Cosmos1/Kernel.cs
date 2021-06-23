@@ -6,11 +6,16 @@ using LyandOS.Commands;
 using Sys = Cosmos.System;
 using Cosmos.System.FileSystem.VFS;
 using Cosmos.System.FileSystem;
+using System.ComponentModel;
+using System.Runtime.Serialization;
+using LyandOS.Utils;
+using LyandOS.Addons;
 
 namespace LyandOS
 {
     public class Kernel : Sys.Kernel
     {
+        public string WD = @"0:\";
         public string AdminLogin = "root";
         public int AdminPass = 1678;
         public Random rnd = new Random();
@@ -18,7 +23,7 @@ namespace LyandOS
         protected override void BeforeRun()
         {
             Sys.FileSystem.VFS.VFSManager.RegisterVFS(fs); // регистрируем фат32
-            Other.BootArt();
+            Utilities.BootArt();
             Console.WriteLine("Press any key to boot...");
             Console.ReadKey();
 
@@ -30,7 +35,7 @@ namespace LyandOS
 
         protected override void Run()
         {            
-            Console.Write(@"0:\> ");
+            Console.Write(WD + "> ");
             var input = Console.ReadLine();
             switch(input)
             {
@@ -43,7 +48,7 @@ namespace LyandOS
                     Console.Clear();
                     break;
                 case "bsod":
-                    Other.Bsod();
+                    SystemFailtureManager.CallKernelPanic("Custom BSOD call", "uhh...", "-1337");
                     break;
                 case "help":
                     Utilities.Help();
@@ -81,11 +86,25 @@ namespace LyandOS
                     Console.WriteLine("");
                     break;
                 case "dir":
-                    Console.WriteLine(@"Dirs in partition 0: are:");
-                    Console.WriteLine(@"0:\Calc");
-                    Console.WriteLine(@"0:\Time");
-                    Console.WriteLine(@"0:\System");
-                    Console.WriteLine("");
+                    switch(WD)
+                    {
+                        case @"0:\":
+                            DirectoryManager.Dir();
+                            break;
+                        case @"0:\Time":
+                            DirectoryManager.DirTime();
+                            break;
+                        case @"0:\Calc":
+                            DirectoryManager.DirCalc();
+                            break;
+                        case @"0:\Guess":
+                            DirectoryManager.DirGuess();
+                            break;
+                        default:
+                            Console.WriteLine("This folder is protected! You can't enter.");
+                            Console.WriteLine("");
+                            break;
+                    }                    
                     break;
                 case "color text":
                     Colors.TextColorSet();
@@ -96,24 +115,20 @@ namespace LyandOS
                 case "color bg":
                     Colors.BGColorSet();
                     break;
-                case "dir calc":
-                    Console.WriteLine(@"Files in 0:\Calc are:");
-                    Console.WriteLine("calc.lnd");
-                    Console.WriteLine("math.lbr");
+                case "cd ..":
+                    WD = @"0:\";
                     Console.WriteLine("");
                     break;
-                case "dir time":
-                    Console.WriteLine(@"Files in 0:\Time are:");
-                    Console.WriteLine("time.lnd");
-                    Console.WriteLine("UTC.lbr");
+                case "cd calc":
+                    WD = @"0:\Calc";
                     Console.WriteLine("");
                     break;
-                case "dir system":
-                    Console.WriteLine("This folder is protected! You can't enter.");
+                case "cd time":
+                    WD = @"0:\Time";
                     Console.WriteLine("");
                     break;
-                case @"dir system\drivers":
-                    Console.WriteLine("This folder is protected! You can't enter.");
+                case "cd guess":
+                    WD = @"0:\Guess";
                     Console.WriteLine("");
                     break;
                 case "error":

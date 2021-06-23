@@ -44,10 +44,10 @@ namespace LyandOS.Commands
         {
             Console.WriteLine("Computer: LyandComp Rev. 1");
             Console.WriteLine("OS: LyandOS");
-            Console.WriteLine("Version: 0.1");
+            Console.WriteLine("Version: 0.2");
             Console.WriteLine("Programming language: C# with using Cosmos Kernel");
             Console.WriteLine("Developer: LyandCorp");
-            string fs_type = Sys.FileSystem.VFS.VFSManager.GetFileSystemType("0:/");
+            string fs_type = Sys.FileSystem.VFS.VFSManager.GetFileSystemType(@"0:\");
             Console.WriteLine("File System Type: " + fs_type);
             Console.WriteLine("");
         }
@@ -77,26 +77,6 @@ namespace LyandOS.Commands
         {
             Console.WriteLine("Discord: https://discord.gg/BdHymp8ZZ9");
             Console.WriteLine("");
-        }
-
-        public static void BootArt()
-        {
-            Console.WriteLine(@" _                           _ _____ _____ ");
-            Cosmos.HAL.Global.PIT.Wait(500);
-            Console.WriteLine(@"| |                         | |  _  /  ___|");
-            Cosmos.HAL.Global.PIT.Wait(500);
-            Console.WriteLine(@"| |    _   _  __ _ _ __   __| | | | \ `--. ");
-            Cosmos.HAL.Global.PIT.Wait(500);
-            Console.WriteLine(@"| |   | | | |/ _` | '_ \ / _` | | | |`--. \");
-            Cosmos.HAL.Global.PIT.Wait(500);
-            Console.WriteLine(@"| |___| |_| | (_| | | | | (_| \ \_/ /\__/ /");
-            Cosmos.HAL.Global.PIT.Wait(500);
-            Console.WriteLine(@"\_____/\__, |\__,_|_| |_|\__,_|\___/\____/ ");
-            Cosmos.HAL.Global.PIT.Wait(500);
-            Console.WriteLine(@"        __/ |                              ");
-            Cosmos.HAL.Global.PIT.Wait(500);
-            Console.WriteLine(@"       |___/                               ");
-            Cosmos.HAL.Global.PIT.Wait(500);
-        }
+        }        
     }
 }
