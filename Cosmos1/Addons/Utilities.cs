@@ -33,22 +33,14 @@ namespace LyandOS.Commands
         }
         public static void BootArt()
         {
-            Console.WriteLine(@" _                           _ _____ _____ ");
-            Global.PIT.Wait(500);
-            Console.WriteLine(@"| |                         | |  _  /  ___|");
-            Global.PIT.Wait(500);
-            Console.WriteLine(@"| |    _   _  __ _ _ __   __| | | | \ `--. ");
-            Global.PIT.Wait(500);
-            Console.WriteLine(@"| |   | | | |/ _` | '_ \ / _` | | | |`--. \");
-            Global.PIT.Wait(500);
-            Console.WriteLine(@"| |___| |_| | (_| | | | | (_| \ \_/ /\__/ /");
-            Global.PIT.Wait(500);
-            Console.WriteLine(@"\_____/\__, |\__,_|_| |_|\__,_|\___/\____/ ");
-            Global.PIT.Wait(500);
-            Console.WriteLine(@"        __/ |                              ");
-            Global.PIT.Wait(500);
-            Console.WriteLine(@"       |___/            Now with dirs!     ");
-            Global.PIT.Wait(500);
+            Console.WriteLine(@" _                           _ _____ _____ "); Global.PIT.Wait(500);
+            Console.WriteLine(@"| |                         | |  _  /  ___|"); Global.PIT.Wait(500);
+            Console.WriteLine(@"| |    _   _  __ _ _ __   __| | | | \ `--. "); Global.PIT.Wait(500);
+            Console.WriteLine(@"| |   | | | |/ _` | '_ \ / _` | | | |`--. \"); Global.PIT.Wait(500);
+            Console.WriteLine(@"| |___| |_| | (_| | | | | (_| \ \_/ /\__/ /"); Global.PIT.Wait(500);
+            Console.WriteLine(@"\_____/\__, |\__,_|_| |_|\__,_|\___/\____/ "); Global.PIT.Wait(500);
+            Console.WriteLine(@"        __/ |                              "); Global.PIT.Wait(500);
+            Console.WriteLine(@"       |___/            Now with dirs!     "); Global.PIT.Wait(500);
         }
 
         public static void User()
