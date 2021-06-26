@@ -5,7 +5,7 @@ using Cosmos.HAL;
 
 namespace LyandOS.Commands
 {
-    class Utilities
+    public static class Utilities
     {
         public static void Help()
         {
@@ -49,6 +49,12 @@ namespace LyandOS.Commands
             Console.WriteLine("User: Default");
             Console.WriteLine("Password: -");
             Console.WriteLine("");
+        }
+
+        public static void TimespanBasedWait(this PIT pit, int ms)
+        {
+            DateTime timeStart = DateTime.Now;
+            while (DateTime.Now - timeStart < TimeSpan.FromMilliseconds(ms)) pit.Wait(1);
         }
     }
 }
