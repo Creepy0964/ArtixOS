@@ -161,7 +161,13 @@ namespace LyandOS.Addons
 
         public static void BeforeRunEngine()
         {
+            Console.WriteLine("ATTENTION: This system is not designed to run on a real PC! If you are running LyandOS on a real PC, please, test it on a VM. Press any key if you anyway want to run OS.");
+            Console.ReadKey();
+            Console.Clear();
+
             Sys.FileSystem.VFS.VFSManager.RegisterVFS(Kernel.fs); // регистрируем фат32
+            Global.PIT.TimespanBasedWait(3000);
+            Console.Clear();
             Utilities.BootArt();
             Console.WriteLine("Press any key to boot...");
             Console.ReadKey();
