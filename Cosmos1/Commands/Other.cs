@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Sys = Cosmos.System;
-using Cosmos.System.FileSystem.VFS;
-using Cosmos.System.FileSystem;
-using Cosmos.HAL;
 
 namespace LyandOS.Commands
 {
@@ -14,11 +9,10 @@ namespace LyandOS.Commands
         {
             Console.WriteLine("Admin login:");
             var adminNickCheck = Console.ReadLine();
-            Console.WriteLine("Admin pass:");
-            var adminPassCheck = Convert.ToInt32(Console.ReadLine());
-
             if (adminNickCheck == "root")
             {
+                Console.WriteLine("Admin pass:");
+                var adminPassCheck = Convert.ToInt32(Console.ReadLine());
                 if (adminPassCheck == 1678)
                 {
                     long available_space = Sys.FileSystem.VFS.VFSManager.GetAvailableFreeSpace("0:/");
@@ -26,7 +20,6 @@ namespace LyandOS.Commands
 
                     string fs_type = Sys.FileSystem.VFS.VFSManager.GetFileSystemType("0:/");
                     Console.WriteLine("File System Type: " + fs_type);
-
                     Console.WriteLine("");
                 }
                 else
@@ -44,12 +37,12 @@ namespace LyandOS.Commands
         {
             Console.WriteLine("Computer: LyandComp Rev. 1");
             Console.WriteLine("OS: LyandOS");
-            Console.WriteLine("Version: 0.2");
+            Console.WriteLine("Version: 0.4");
             Console.WriteLine("Programming language: C# with using Cosmos Kernel");
-            Console.WriteLine("Developer: LyandCorp");
+            Console.WriteLine("Developer: LyandCorp, EGA Team");
             string fs_type = Sys.FileSystem.VFS.VFSManager.GetFileSystemType(@"0:\");
             Console.WriteLine("File System Type: " + fs_type);
-            Console.WriteLine("");
+            Console.WriteLine("");            
         }
 
         public static void Bsod()
@@ -77,6 +70,16 @@ namespace LyandOS.Commands
         {
             Console.WriteLine("Discord: https://discord.gg/BdHymp8ZZ9");
             Console.WriteLine("");
-        }        
+        }
+        
+        public static void PlaySound()
+        {
+            Sys.PCSpeaker.Beep();
+        }
+
+        public static void Test()
+        {
+            
+        }
     }
 }

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Net;
 using System.Text;
+using Cosmos.HAL;
 using Sys = Cosmos.System;
 
-namespace LyandOS.Utils
+namespace LyandOS.Addons
 {
     class SystemFailtureManager
     {
@@ -13,7 +14,7 @@ namespace LyandOS.Utils
         /// Call kernel panic with parameters and information.
         /// </summary>
         public static void CallKernelPanic(string message, string tracelog, string errno)
-        {
+        {            
             string logInfo = string.Empty;
             logInfo += $"  Error Code: {errno}\n";
             logInfo += $"  Error: {message}\n";
@@ -34,11 +35,12 @@ namespace LyandOS.Utils
                 logsSent ? "Anonymous logs were sent to the server." :
                 "Please, contact Creepy0964#9567 on Discord and provide this information. P.S. This screen was proudly made by Eimaen. His LyandOS's repository: https://github.com/Eimaen/LyandOS.");
             Console.WriteLine();
+            Sys.PCSpeaker.Beep();
 
             Console.WriteLine(logInfo);
             Console.WriteLine();
 
-            Console.Write("Press any key to restart the computer.");
+            Console.Write("Rebooting in 3 seconds...");
             Console.ReadKey();
 
             Sys.Power.Reboot();
