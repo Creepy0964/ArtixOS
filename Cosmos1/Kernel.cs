@@ -12,12 +12,11 @@ namespace LyandOS
         public static string WDSymb = ">";
         public string AdminLogin = "root";
         public int AdminPass = 1678;
+
         public Random rnd = new Random();
-        public static CosmosVFS fs = new Sys.FileSystem.CosmosVFS(); // покдлючаем фат32
-        protected override void BeforeRun()
-        {
-            KernelEngine.BeforeRunEngine();
-        }
+        public static CosmosVFS filesystem = new CosmosVFS(); // покдлючаем фат32
+
+        protected override void BeforeRun() => KernelEngine.BeforeRunEngine();
 
         protected override void Run()
         {            
