@@ -4,6 +4,7 @@ using Sys = Cosmos.System;
 using Cosmos.System.FileSystem;
 using LyandOS.Addons;
 using Cosmos.HAL;
+using LyandOS.Plugins;
 
 namespace LyandOS.Addons
 {
@@ -153,8 +154,11 @@ namespace LyandOS.Addons
                     }
                     break;
                 default:
-                    Console.WriteLine("Unknown input. Type 'help' for commands.");
-                    Console.WriteLine("");
+                    if (!PluginManager.TryHandleCommand(Kernel.input))
+                    {
+                        Console.WriteLine("Unknown input. Type 'help' for commands.");
+                        Console.WriteLine("");
+                    }
                     break;
             }
         }
@@ -165,7 +169,8 @@ namespace LyandOS.Addons
             Console.ReadKey();
             Console.Clear();
 
-            Sys.FileSystem.VFS.VFSManager.RegisterVFS(Kernel.fs); // регистрируем фат32
+            Sys.FileSystem.VFS.VFSManager.RegisterVFS(Kernel.filesystem); // регистрируем фат32
+            PluginManager.LoadPlugins();
             Global.PIT.TimespanBasedWait(3000);
             Console.Clear();
             Utilities.BootArt();
