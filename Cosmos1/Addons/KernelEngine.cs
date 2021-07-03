@@ -5,6 +5,8 @@ using Cosmos.System.FileSystem;
 using LyandOS.Addons;
 using Cosmos.HAL;
 using LyandOS.Plugins;
+using Cosmos.System.Graphics;
+using System.Drawing;
 
 namespace LyandOS.Addons
 {
@@ -14,40 +16,6 @@ namespace LyandOS.Addons
         {
             switch (Kernel.input)
             {
-                case "shutdown":
-                    Console.WriteLine("Shutdowning in 5 seconds.");
-                    Global.PIT.TimespanBasedWait(5000);
-                    Sys.Power.Shutdown();
-                    break;
-                case "cls":
-                    Console.Clear();
-                    break;
-                case "bsod":
-                    SystemFailtureManager.CallKernelPanic("Custom BSOD call", "uhh...", "-1337");
-                    break;
-                case "play sound":
-                    Other.PlaySound();
-                    break;
-                case "notepad":
-                    Utilities.Notepad();
-                    break;
-                case "notepad -read":
-                    Utilities.NotepadRead();
-                    break;
-                case "notepad -write":
-                    Utilities.NotepadWrite();
-                    break;
-                case "help":
-                    Utilities.Help();
-                    break;
-                case "social":
-                    Other.Social();
-                    break;
-                case "reboot":
-                    Console.WriteLine("Rebooting in 3 seconds.");
-                    Global.PIT.TimespanBasedWait(5000);
-                    Sys.Power.Reboot();
-                    break;
                 case "let_me_guess":
                     if (Kernel.WD != @"0:\Guess")
                     {

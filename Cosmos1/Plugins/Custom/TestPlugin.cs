@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LyandOS.Plugins.Handlers
+namespace LyandOS.Plugins.Custom
 {
     class TestPlugin : LyandPlugin
     {

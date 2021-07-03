@@ -1,4 +1,5 @@
-﻿using LyandOS.Plugins.Handlers;
+﻿using LyandOS.Plugins.Custom;
+using LyandOS.Plugins.Default;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +12,18 @@ namespace LyandOS.Plugins
 
         public static void LoadPlugins()
         {
+            // Test
             Plugins.Add(new TestPlugin());
+
+            // Core
+            Plugins.Add(new Bsod());
+            Plugins.Add(new Cls());
+            Plugins.Add(new Help());
+            Plugins.Add(new Notepad());
+            Plugins.Add(new Playsound());
+            Plugins.Add(new Reboot());
+            Plugins.Add(new Shutdown());
+            Plugins.Add(new Social());
         }
 
         public static bool TryHandleCommand(string command)
