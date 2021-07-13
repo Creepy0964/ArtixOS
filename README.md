@@ -1,13 +1,11 @@
-Hello! Welcome to the LyandOS documentation. Here you can get some info about the OS. It is written in C# using the Cosmos Kernel.
-What you can see in the OS:
-- simple calculator
-- UTC clock
-- ability to shutdown and restart the computer with the command
-- portability (no installation required)
-- the installing and deleting of programms
-- file manager
-- color customization
-- theme selector
-- boot screen
+# Welcome to LyandOS!
+This is open-source joke project, written on C# with Cosmos Kernel. Current supported version: 0.5 Dev Release 1100.
 
-That's all for now. OS version: 0.1. I hope that the OS is usable!
+## What can you do?
+You can work with real files and do some small things such as calculate something.
+
+## How can I download LyandOS?
+If you want to download development releases, please enter our Discord: https://discord.gg/dMgUsjcB6x. All final releases are always available on GitHub.
+
+## Can I help to develop LyandOS?
+Yes! You can suggest some ideas in our Discord every time you want.
