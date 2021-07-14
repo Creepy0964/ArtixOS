@@ -1,0 +1,51 @@
+<html>
+<head>
+  <title>LyandOS Official Site</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="css/navigation.css" rel="stylesheet" type="text/css">
+  <link href="css/background.css" rel="stylesheet" type="text/css">
+  <link href="resources\LyandOS.png" rel="shortcut icon">
+</head>
+
+<body>
+  <div class="container">
+    <div class="element">
+      <img draggable="false" src="resources\LyandOS.png"></img>
+      <h1>LyandOS Official Page</h1>
+
+      <section>
+        <ul>
+        <li title="GitHub Repository"><a href="https://github.com/Creepy0964/LyandOS"><i class="fab fa-github"></i></a></li>
+		<li title="Release direct download"><a href="LyandOS/download/0.4.iso"><i class="fas fa-download"></i></a></li>
+		<li title="Dev direct download"><a href="LyandOS/download/0.5_1100.iso"><i class="fas fa-download"></i></a></li>
+		<li title="Discord"><a href="https://discord.gg/BdHymp8ZZ9"><i class="fab fa-discord"></i></a></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="navigationContainer">
+      <div class="navigation">
+        <ul>
+          <li>
+            <a href="#">
+              <span class="icon"><i class="fas fa-home"></i></span>
+              <span class="title" title="Home">Home</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="toggle"></div>
+    </div>
+  </div>
+</body>
+
+<script>
+  document.querySelector('.toggle').onclick = function() {
+    this.classList.toggle('active');
+    document.querySelector('.navigation').classList.toggle('active');
+    document.querySelector('.navigationContainer').classList.toggle('active');
+  }
+</script>
+
+<script src="https://kit.fontawesome.com/31249f53f3.js" crossorigin="anonymous"></script>
+</html>
